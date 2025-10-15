@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendering example</title>
+    <style>
+        #content{
+            font-style:normal;
+            font-weight: bold;
+        }
+        button{
+             
+            background-color:palevioletred;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: darkmagenta;
+            border-radius:none;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <p id="content">Hello!!! I am Subasri</p>
+    <button id="btn" onclick="changeColor()">Click me</button>
+    <script>
+        function changeColor(){
+        document.getElementById("content").style.backgroundColor="Orange"
+        document.getElementById("content").style.padding="20px"
+         document.getElementById("content").style.fontStyle="italic"
+        }
+    </script>
+</body>
+</html>

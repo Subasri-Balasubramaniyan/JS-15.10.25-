@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSP Simple Example</title>
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';">
+</head>
+<body>
+  <h1>Content Security Policy Demo</h1>
+  <p>Inline scripts are blocked!</p>
+
+  <!-- ❌ Inline script will NOT run -->
+  <script>
+    alert("This alert is blocked by CSP!");
+  </script>
+
+  <!-- ✅ External script is allowed -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!-- ⚙️ Example with More Rules
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' https://apis.google.com;
+  style-src 'self' https://fonts.googleapis.com;
+  img-src 'self' data:;
+  font-src 'self' https://fonts.gstatic.com;
+
+
+🔍 Explanation:
+
+default-src 'self' → Only same-origin resources allowed.
+
+script-src 'self' https://apis.google.com → Allow scripts from your site + Google API.
+
+style-src 'self' https://fonts.googleapis.com → Allow styles from your site + Google Fonts.
+
+img-src 'self' data: → Allow images from your site + base64 data URLs.
+
+font-src 'self' https://fonts.gstatic.com → Allow fonts from your site + Google Fonts. -->

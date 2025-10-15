@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage Example</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+  <h2>Local Storage Demo</h2>
+
+  <input type="text" id="username" placeholder="Enter your name">
+  <button id="saveBtn">Save Name</button>
+  <button id="clearBtn">Clear Storage</button>
+
+  <h3 id="display"></h3>
+
+  <script>
+    const input = document.getElementById("username");
+    const display = document.getElementById("display");
+
+    // ✅ Load saved name when the page loads
+    const savedName = localStorage.getItem("username");
+    if (savedName) {
+      display.textContent = `Welcome back, ${savedName}!`;
+    }
+
+    // ✅ Save name to local storage
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      const name = input.value.trim();
+      if (name) {
+        localStorage.setItem("username", name);
+        display.textContent = `Hello, ${name}! Your name is saved.`;
+      } else {
+        alert("Please enter a name.");
+      }
+    });
+
+    // ✅ Clear local storage
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      localStorage.removeItem("username");
+      display.textContent = "Storage cleared!";
+    });
+  </script>
+</body>
+</html>

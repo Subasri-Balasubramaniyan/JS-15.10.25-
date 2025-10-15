@@ -1,0 +1,31 @@
+<!-- dom-xss.html (vulnerable) -->
+<!doctype html>
+<html>
+  <body>
+    <h1>DOM XSS demo</h1>
+    <div id="out"></div>
+    <script>
+      // reads the hash and injects as HTML → unsafe
+      const payload = location.hash.slice(1); // #<script>...
+      document.getElementById('out').innerHTML = "Hash says: " + payload;
+    </script>
+    <p>Try: open this file with <code>#&lt;img src=x onerror=alert('DOM')&gt;</code></p>
+  </body>
+</html>
+
+
+<!-- Quick Prevention Checklist (practical)
+
+Escape output — always escape user data before inserting into HTML on server or client.
+
+Sanitize inputs — for stored content, strip dangerous tags/attributes (e.g., using sanitize-html).
+
+Use safe DOM APIs — prefer textContent / setAttribute over innerHTML.
+
+CSP — set a Content-Security-Policy header to restrict script sources and disallow unsafe-inline if possible.
+
+HTTP-only cookies — prevent JS access to session cookies.
+
+Use frameworks safely — many templating engines auto-escape (e.g., React does by default; avoid dangerouslySetInnerHTML).
+
+Keep libraries updated and review third-party widget code. -->

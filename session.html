@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Storage Example</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+  <h2>Session Storage Demo</h2>
+
+  <input type="text" id="username" placeholder="Enter your name">
+  <button id="saveBtn">Save Name</button>
+  <button id="clearBtn">Clear Storage</button>
+
+  <h3 id="display"></h3>
+
+  <script>
+    const input = document.getElementById("username");
+    const display = document.getElementById("display");
+
+    // ✅ Load saved name when the page loads (if exists in session storage)
+    const savedName = sessionStorage.getItem("username");
+    if (savedName) {
+      display.textContent = `Welcome back (this session), ${savedName}!`;
+    }
+
+    // ✅ Save name to session storage
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      const name = input.value.trim();
+      if (name) {
+        sessionStorage.setItem("username", name);
+        display.textContent = `Hello, ${name}! (Stored for this tab only)`;
+      } else {
+        alert("Please enter a name.");
+      }
+    });
+
+    // ✅ Clear session storage
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      sessionStorage.removeItem("username");
+      display.textContent = "Session storage cleared!";
+    });
+  </script>
+</body>
+</html>

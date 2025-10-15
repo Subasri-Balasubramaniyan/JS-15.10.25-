@@ -1,0 +1,155 @@
+1️⃣ npm (Node Package Manager)
+
+What it is: The default package manager for Node.js.
+
+Use: Install, update, and manage dependencies in your project.
+
+Common commands:
+
+npm init -y           # Initialize a new project with default package.json
+npm install express    # Install a package locally
+npm install -g nodemon # Install a package globally
+npm update             # Update installed packages
+npm uninstall express  # Remove a package
+
+
+Example:
+
+npm install lodash
+
+
+Adds the lodash library to your project so you can use it in your code:
+
+const _ = require('lodash');
+console.log(_.shuffle([1, 2, 3, 4]));
+
+2️⃣ Yarn
+
+What it is: An alternative package manager to npm.
+
+Use: Faster installs, deterministic dependency resolution, better caching.
+
+Common commands:
+
+yarn init        # Initialize a new project
+yarn add react   # Install a package
+yarn remove react
+yarn upgrade
+
+
+Example:
+
+yarn add axios
+
+
+Installs axios for making HTTP requests.
+
+💡 Note: npm and yarn are interchangeable in most cases; you typically pick one for a project.
+
+3️⃣ Linters (ESLint)
+
+What it is: A tool that analyzes your code for errors, bad practices, or style issues.
+
+Use: Catch bugs early and enforce coding standards.
+
+Install ESLint:
+
+npm install eslint --save-dev
+
+
+Initialize config:
+
+npx eslint --init
+
+
+Example usage:
+
+npx eslint index.js
+
+
+Sample ESLint warning:
+
+var name = 'Subasri';
+console.log(Name); // ESLint will warn: 'Name' is not defined
+
+4️⃣ Formatters (Prettier)
+
+What it is: A tool to automatically format your code for consistency.
+
+Use: Makes code neat, consistent indentation, spacing, quotes, etc.
+
+Install Prettier:
+
+npm install --save-dev prettier
+
+
+Run Prettier on a file:
+
+npx prettier --write index.js
+
+
+Before Prettier:
+
+function hello(){console.log("hi");}
+
+
+After Prettier:
+
+function hello() {
+  console.log("hi");
+}
+
+
+ESLint + Prettier is a common combo: ESLint for rules, Prettier for formatting.
+
+5️⃣ Bundlers
+
+What it is: Tools that bundle JavaScript, CSS, images, and other assets for deployment.
+
+Use: Combine modules into single or optimized files for browsers.
+
+Popular bundlers:
+
+Webpack
+
+Parcel
+
+Vite (modern, fast)
+
+Rollup (popular for libraries)
+
+Example with Webpack:
+
+Install:
+
+npm install --save-dev webpack webpack-cli
+
+
+Create webpack.config.js:
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  mode: 'development',
+};
+
+
+Run build:
+
+npx webpack
+
+
+This combines all JS modules starting from index.js into dist/bundle.js.
+
+| Tool         | Purpose                                          | Example Usage                   |
+| ------------ | ------------------------------------------------ | ------------------------------- |
+| **npm**      | Manage dependencies                              | `npm install express`           |
+| **Yarn**     | Alternative package manager                      | `yarn add axios`                |
+| **ESLint**   | Linting: catch errors & enforce coding standards | `npx eslint index.js`           |
+| **Prettier** | Formatting: make code neat and consistent        | `npx prettier --write index.js` |
+| **Bundlers** | Combine JS/CSS/assets for browser                | `npx webpack`                   |

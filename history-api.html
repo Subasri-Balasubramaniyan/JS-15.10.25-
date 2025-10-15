@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History API Example</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+  <h2>History API Demo</h2>
+
+  <button id="page1">Go to Page 1</button>
+  <button id="page2">Go to Page 2</button>
+  <button id="page3">Go to Page 3</button>
+  <button id="back">⬅ Back</button>
+  <button id="forward">➡ Forward</button>
+
+  <h3 id="output">You are on the Home Page</h3>
+
+  <script>
+    const output = document.getElementById("output");
+
+    // ✅ Update page content and history
+    function navigate(page) {
+      history.pushState({ page }, `Page ${page}`, `page${page}.html`);
+      output.textContent = `You are on Page ${page}`;
+    }
+
+    // ✅ Handle navigation
+    document.getElementById("page1").addEventListener("click", () => navigate(1));
+    document.getElementById("page2").addEventListener("click", () => navigate(2));
+    document.getElementById("page3").addEventListener("click", () => navigate(3));
+
+    // ✅ Move backward or forward in history
+    document.getElementById("back").addEventListener("click", () => history.back());
+    document.getElementById("forward").addEventListener("click", () => history.forward());
+
+    // ✅ Handle browser’s Back/Forward buttons
+    window.addEventListener("popstate", (event) => {
+      if (event.state) {
+        output.textContent = `You are on Page ${event.state.page}`;
+      } else {
+        output.textContent = "You are on the Home Page";
+      }
+    });
+  </script>
+</body>
+</html>

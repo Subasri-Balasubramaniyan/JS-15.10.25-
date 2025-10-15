@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Type something">
+<p id="output"></p>
+<script>
+    const input=document.getElementById("name")
+    input.addEventListener("input",()=>{
+        document.getElementById("output").textContent=input.value;
+    })
+</script>
+</body>
+</html>
+
+<!-- addEventListener listens for user interactions and triggers a callback. -->

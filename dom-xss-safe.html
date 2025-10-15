@@ -1,0 +1,13 @@
+<!-- dom-xss-safe.html -->
+<!doctype html>
+<html>
+  <body>
+    <h1>DOM XSS fixed</h1>
+    <div id="out"></div>
+    <script>
+      const payload = location.hash.slice(1);
+      // safer: treat user data as text, not HTML
+      document.getElementById('out').textContent = "Hash says: " + payload;
+    </script>
+  </body>
+</html>

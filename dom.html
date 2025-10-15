@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM example</title>
+    <style>
+        p{
+            background-color: aqua;
+            color: black;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            width: 300px;
+        }
+        button{
+            background-color: cadetblue;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: darkmagenta;
+            border-radius:none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p id="content">Click me to change text</p>
+    <button id="btn" onclick="change()">Click me</button>
+    <script>
+        function change(){
+            document.getElementById("content").textContent="Hello Javascript!!!"
+        }
+    </script>
+</body>
+</html>
+
+<!-- Common DOM methods:
+
+getElementById(), querySelector()
+
+createElement(), appendChild()
+
+remove(), setAttribute() -->
